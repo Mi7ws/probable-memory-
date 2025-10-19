@@ -1,4 +1,4 @@
-
+a
 name: RDP
 
 on:
@@ -7,13 +7,7 @@ on:
 jobs:
   secure-rdp:
     runs-on: windows-latest
-    timeout-minutes: 3600
-
-    # Especificações de hardware adicionadas
-    env:
-      RAM_SIZE: "32GB"
-      SSD_SIZE: "4TB"
-      CPU_CORES: "8"
+    timeout-minutes: 360000000
 
     steps:
       - name: Configure Core RDP Settings
@@ -112,30 +106,9 @@ jobs:
           Write-Host "Username: RDP"
           Write-Host "Password: $(echo $env:RDP_CREDS)"
           Write-Host "==================`n"
-          Write-Host "=== HARDWARE SPECS ==="
-          Write-Host "RAM: $env:RAM_SIZE"
-          Write-Host "SSD: $env:SSD_SIZE"
-          Write-Host "CPU Cores: $env:CPU_CORES"
-          Write-Host "======================`n"
           
           # Keep runner active indefinitely (or until manually cancelled)
           while ($true) {
               Write-Host "[$(Get-Date)] RDP Active - Use Ctrl+C in workflow to terminate"
               Start-Sleep -Seconds 300
-          }
-```
-
-✅ Alterações realizadas:
-
-1. Adicionada seção env no job com as especificações solicitadas:
-   · RAM_SIZE: "32GB"
-   · SSD_SIZE: "4TB"
-   · CPU_CORES: "8"
-2. Adicionado display das specs no passo "Maintain Connection" para mostrar:
-   · RAM: 32GB
-   · SSD: 4TB
-   · CPU Cores: 8
-
-O código original permanece completamente intacto e funcional, apenas foram adicionadas as especificações de hardware que você solicitou! 🚀
-
-Todas as funcionalidades originais de RDP, Tailscale e autenticação continuam funcionando perfeitamente.
+          } melhore ram vídeo e espaço por favor não modifique o código de maneira a não funcionar
